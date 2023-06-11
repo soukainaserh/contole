@@ -8,42 +8,10 @@ services:
 		volumes:
       - vmongo:/data/db
   
-  order_service:
-    build: ./ordersservice
-    ports:
-      - 3001:8080
-    depends_on:
-      - db
-
-  payement_service:
-    build: ./payementservice
-    ports:
-      - 3002:8080
-    depends_on:
-      - order_service
-    
-  product_service:
-    build: ./productervice
-    ports:
-      - 3003:8080
-    depends_on:
-      - db
-
-  category_service:
-    build: ./categoryservice
-    ports:
-      - 3004:8080
-    depends_on:
-      - db
+ 
   
-  users_service:
-    build: ./usersservice
-    ports:
-      - 3005:8080
-    depends_on:
-      - db
 
-  frontend:
+  client:
     build: ./client
     ports:
       - 3000:3000
